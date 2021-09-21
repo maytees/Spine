@@ -31,7 +31,7 @@ public final class Lexer {
         }
     }
 
-    public void advance(){
+    public void advanceChar(){
         if (currentLine.getCurrentChar() == '\n') {
             currentLine.advanceLine();
             return;
