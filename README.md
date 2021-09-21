@@ -1,7 +1,7 @@
 # Spine
 ### Table of contents
 - [Introduction](#introduction)
-  - [What is spine?](what-is-spine)
+  - [What is spine?](#what-is-spine)
 - [Todo](#todo)
 ## Introduction
 
