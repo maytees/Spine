@@ -6,7 +6,7 @@
 ## Introduction
 
 #### What is spine?
-Spine is an upcoming interpreted programming language which is used for times when ease is a priority when programming.
+Spine is an upcoming interpreted programming language which is used for times when ease is a priority.
 
 ## Todo
 - Finish the lexer
