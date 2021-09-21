@@ -44,18 +44,20 @@ public final class Lexer {
         char lastChar;
 
         for (char character : line.toCharArray()) {
-
             if (character == ' ') {
                 continue;
-            }
-
-            switch (character) {
-                case '+' -> generatedTokens.add(new Token("+", TokenType.ADDITION));
-                case '-' -> generatedTokens.add(new Token("-", TokenType.SUBTRACT));
-                case '*' -> generatedTokens.add(new Token("*", TokenType.MULTIPLY));
-                case '/' -> generatedTokens.add(new Token("/", TokenType.DIVIDE));
-                case ';' -> generatedTokens.add(new Token(";", TokenType.SEMICOLON));
-                default -> generatedTokens.add(new Token(Character.toString(character), TokenType.UNKNOWN));
+            } else if (isToken(character, '+')) {
+                generatedTokens.add(new Token("+", TokenType.ADDITION));
+            } else if (isToken(character, '-')) {
+                generatedTokens.add(new Token("-", TokenType.SUBTRACT));
+            } else if (isToken(character, '*')) {
+                generatedTokens.add(new Token("*", TokenType.MULTIPLY));
+            } else if (isToken(character, '/')) {
+                generatedTokens.add(new Token("/", TokenType.DIVIDE));
+            } else if (isToken(character, ';')) {
+                generatedTokens.add(new Token(";", TokenType.SEMICOLON));
+            }else{
+                generatedTokens.add(new Token(Character.toString(character),TokenType.UNKNOWN));
             }
 
             lastChar = character;
@@ -64,5 +66,9 @@ public final class Lexer {
 
         pos = 0;
         return generatedTokens;
+    }
+
+    private boolean isToken(char character, char expected) {
+        return character == expected;
     }
 }
