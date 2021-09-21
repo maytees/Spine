@@ -1,5 +1,8 @@
 package interpreter;
 
+import interpreter.etc.Line;
+
+import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,11 +10,13 @@ import java.util.List;
 public final class Lexer {
 
     private List<Token> tokens = new ArrayList<Token>();
-    private long pos = 0;
-    private long lineNum = 0;
+    private Line currentLine;
 
     public Lexer(File fileInput) {
         // Get the tokens from the method below and give them to the parser
+
+        this.currentLine = new Line();
+
         try {
             tokens.addAll(lex(new FileReader(fileInput)));
             listTokens();
@@ -26,6 +31,15 @@ public final class Lexer {
         }
     }
 
+    public void advance(){
+        if (currentLine.getCurrentChar() == '\n') {
+            currentLine.advanceLine();
+            return;
+        }
+
+        currentLine.advanceChar();
+    }
+
     public List<Token> lex(FileReader input) throws IOException {
         List<Token> generatedTokens = new ArrayList<Token>();
         BufferedReader reader = new BufferedReader(input);
@@ -33,7 +47,7 @@ public final class Lexer {
         String line;
         while ((line = reader.readLine()) != null) {
             generatedTokens.addAll(getTokensFromStatement(line));
-            lineNum++;
+            currentLine.advanceLine();
         }
 
         return generatedTokens;
@@ -56,19 +70,24 @@ public final class Lexer {
                 generatedTokens.add(new Token("/", TokenType.DIVIDE));
             } else if (isToken(character, ';')) {
                 generatedTokens.add(new Token(";", TokenType.SEMICOLON));
-            }else{
-                generatedTokens.add(new Token(Character.toString(character),TokenType.UNKNOWN));
+            } else if (isTokenNumber(character)) { // Checking for numbers
+                int dotcount = 0;
+                String numString = "";
+
+            } else {
+                generatedTokens.add(new Token(Character.toString(character), TokenType.UNKNOWN));
             }
 
-            lastChar = character;
-            pos++;
         }
 
-        pos = 0;
         return generatedTokens;
     }
 
     private boolean isToken(char character, char expected) {
         return character == expected;
+    }
+
+    private boolean isTokenNumber(char character) {
+        return TokenType.NUMBER.getCharacters().contains(character);
     }
 }
