@@ -10,8 +10,8 @@
 - [Todo](#todo)
 
 ## Thanks To
-- Eggerga, for making the icon, and a thanks to making the website (in advance)
-- ZBOSS, for suggesting the awful name
+- [Eggerga](https://github.com/developer-egg), for making the icon, and a thanks to making the website (in advance)
+- [ZBOSS](https://github.com/ZB0SS), for suggesting the awful name
 
 ## Introduction
 
