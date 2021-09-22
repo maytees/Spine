@@ -1,4 +1,4 @@
-<img src="https://github.com/maytees/Spine/blob/master/icon.svg">Icon<img>
+<img src="https://github.com/maytees/Spine/blob/master/icon.svg"><img>
 
 # Spine
 
