@@ -4,10 +4,15 @@
 # Spine
 
 ### Table of contents
-
+- [Thanks to](#thanks-to)
 - [Introduction](#introduction)
   - [What is spine?](#what-is-spine)
 - [Todo](#todo)
+
+## Thanks To
+- Eggerga, for making the icon, and a thanks to making the website (in advance)
+- ZBOSS, for suggesting the awful name
+
 ## Introduction
 
 #### What is spine?
