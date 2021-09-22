@@ -1,6 +1,6 @@
-<p align="center">
-  <img src="https://github.com/maytees/Spine/blob/master/icon.svg"><img>
-</p>
+
+<img src="https://github.com/maytees/Spine/blob/master/icon.svg">
+
 # Spine
 
 ### Table of contents
